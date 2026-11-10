@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aarón Blade · Mago y mentalista para bodas, comuniones y eventos</title>
+<meta name="description" content="Aarón Blade, mago profesional y mentalista con más de 15 años de experiencia. Magia para bodas, comuniones, cumpleaños, eventos de empresa y presentaciones de producto: close-up, magia de salón, mentalismo e hipnosis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Pinyon+Script&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+body { margin: 0; } img { max-width: 100%; } [hidden] { display: none !important; }
+
+/* Layout: cartel de teatro de variedades. Escenario oscuro y cálido, foco dorado sobre los logos, telón al final.
+   Tipografía: Gloock (titulares), Pinyon Script (firma), Schibsted Grotesk (texto), Courier Prime (etiquetas de entrada de teatro). */
+:root {
+  --tablao: #15110c;
+  --telon: #221810;
+  --oro: #d6a34a;
+  --oro-claro: #f3d58f;
+  --mostaza: #e6b52c;
+  --papel: #efe5d1;
+  --tinta: #1d160f;
+  --humo: #a89c87;
+  --linea: #3a2c1f;
+  --f-display: "Gloock", "Bodoni 72", Didot, Georgia, serif;
+  --f-firma: "Pinyon Script", "Snell Roundhand", cursive;
+  --f-ticket: "Courier Prime", "Courier New", monospace;
+  --f-texto: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { background: var(--tablao); color: var(--papel); font-family: var(--f-texto); font-size: 17px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--tablao); }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--mostaza); outline-offset: 3px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.etq { font-family: var(--f-ticket); font-size: 13px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; }
+.oro { color: var(--oro); }
+.humo { color: var(--humo); }
+h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 400; line-height: 1.02; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+p { margin: 0; }
+.acto { display: block; margin-bottom: 10px; }
+.cursiva { font-family: var(--f-firma); font-style: normal; font-weight: 400; }
+
+/* Cabecera */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--tablao) 86%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linea); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.marca img { width: 40px; height: 40px; border-radius: 50%; }
+.marca span { font-family: var(--f-display); font-size: 1.3rem; }
+.top nav { display: flex; gap: 26px; align-items: center; }
+.top nav a { text-decoration: none; color: var(--humo); font-size: 15px; font-weight: 500; }
+.top nav a:hover { color: var(--oro-claro); }
+.top nav a.cta { color: var(--tinta); background: var(--oro); padding: 8px 16px; }
+.top nav a.cta:hover { background: var(--oro-claro); color: var(--tinta); }
+@media (max-width: 760px) { .top nav a:not(.cta) { display: none; } }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: end; padding-block: 56px 0; }
+.hero-txt { padding-bottom: 56px; position: relative; z-index: 2; min-width: 0; }
+.hero h1 { font-size: clamp(4.2rem, 13vw, 10.5rem); letter-spacing: -.02em; margin-right: -30%; }
+.hero h1 .b { display: block; color: var(--oro); padding-left: .55em; }
+.firma { font-family: var(--f-display); font-size: clamp(1.9rem, 3.6vw, 2.8rem); color: var(--oro); line-height: 1.1; margin-top: 18px; }
+.hero-lead { max-width: 31em; color: var(--humo); margin-top: 18px; font-size: 1.1rem; }
+.acciones { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; text-decoration: none; font-weight: 700; font-size: 1rem; border: 1.5px solid var(--oro); color: var(--oro-claro); background: transparent; font-family: var(--f-texto); cursor: pointer; transition: background .2s, color .2s; }
+.btn.lleno { background: var(--oro); color: var(--tinta); }
+.btn:hover { background: var(--oro-claro); border-color: var(--oro-claro); color: var(--tinta); }
+.hero-foto { position: relative; min-width: 0; margin: 0; }
+.hero-foto img { width: 100%; aspect-ratio: 2/3; object-fit: cover; object-position: center 20%; }
+.hero-foto .sello { position: absolute; left: -38px; bottom: 40px; width: 120px; border-radius: 50%; border: 3px solid var(--tablao); }
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 36px 0; }
+  .hero h1 { margin-right: 0; }
+  .hero-txt { padding-bottom: 12px; }
+  .hero-foto .sello { left: 12px; width: 90px; }
+}
+
+/* Cinta */
+.cinta { border-block: 1px solid var(--linea); overflow: hidden; background: var(--telon); }
+.cinta-in { display: flex; gap: 36px; padding-block: 16px; white-space: nowrap; animation: correr 48s linear infinite; width: max-content; font-family: var(--f-ticket); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--oro); }
+.cinta-in span::after { content: "✦"; margin-left: 36px; color: var(--humo); }
+@keyframes correr { to { transform: translateX(-50%); } }
+
+/* Quién soy */
+.quien .wrap { display: grid; grid-template-columns: 6fr 5fr; gap: 64px; padding-block: 104px; align-items: center; }
+.quien-txt { min-width: 0; }
+.quien blockquote { margin: 26px 0 0; font-family: var(--f-display); font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.3; max-width: 26em; }
+.quien blockquote em { font-style: normal; color: var(--oro); }
+.quien cite { display: block; margin-top: 18px; font-style: normal; }
+.cifras { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 44px; border-top: 1px solid var(--linea); }
+.cifras div { padding: 20px 16px 0 0; min-width: 0; }
+.cifras div + div { padding-left: 20px; border-left: 1px solid var(--linea); }
+.cifras strong { display: block; font-family: var(--f-display); font-weight: 400; font-size: clamp(2.6rem, 5vw, 3.8rem); line-height: 1; color: var(--oro); font-variant-numeric: tabular-nums; }
+.cifras span { color: var(--humo); font-size: .95rem; display: block; margin-top: 6px; line-height: 1.35; }
+.quien figure { margin: 0; min-width: 0; }
+.quien figure img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 40% center; }
+.quien figcaption { margin-top: 12px; }
+@media (max-width: 820px) { .quien .wrap { grid-template-columns: 1fr; padding-block: 72px; gap: 40px; } }
+
+/* Mi huella mágica */
+.huella { background: radial-gradient(120% 80% at 50% 100%, #2c1e10 0%, var(--tablao) 60%); position: relative; overflow: hidden; padding-block: 104px 72px; }
+.huella-cab { position: relative; z-index: 1; text-align: center; }
+.huella-cab .acto { display: block; }
+.huella-cab > div { min-width: 0; }
+.huella-cab p { color: var(--humo); margin-top: 18px; max-width: 30em; }
+.brillo { background: linear-gradient(100deg, var(--oro) 20%, #fff6dc 40%, var(--mostaza) 55%, var(--oro) 75%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: destello 5s linear infinite; }
+@keyframes destello { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+.contador { display: flex; align-items: center; gap: 16px; margin-top: 28px; }
+.contador strong { font-family: var(--f-display); font-weight: 400; font-size: clamp(3.6rem, 8vw, 5.6rem); line-height: .9; color: var(--oro); font-variant-numeric: tabular-nums; }
+.contador span { color: var(--humo); max-width: 12em; line-height: 1.3; }
+.huella-cab figure { margin: 0; min-width: 0; }
+.huella-cab figure img { width: 100%; aspect-ratio: 4/5; object-fit: cover; animation: flota 7s ease-in-out infinite; }
+@keyframes flota { 50% { transform: translateY(-10px) rotate(-1deg); } }
+
+.escena { position: relative; margin-top: 64px; height: 330px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.foco { position: absolute; left: 50%; top: -64px; bottom: 0; width: min(560px, 80vw); transform: translateX(-50%); pointer-events: none; }
+.foco::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--oro-claro) 30%, transparent), color-mix(in srgb, var(--oro) 6%, transparent) 85%); clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); filter: blur(6px); animation: parpadeo 5s ease-in-out infinite; }
+.foco::after { content: ""; position: absolute; left: 0; right: 0; bottom: -30px; height: 90px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--oro) 45%, transparent), transparent); }
+@keyframes parpadeo { 0%, 100% { opacity: .9; } 45% { opacity: .65; } 50% { opacity: .95; } 55% { opacity: .7; } }
+.pista { position: absolute; left: 0; right: 0; overflow: hidden; }
+.pista.fondo { top: 0; height: 90px; opacity: .2; filter: grayscale(1) sepia(.8) blur(1.5px); }
+.pista.frente { top: 92px; height: 230px; }
+.tren { display: flex; align-items: center; height: 100%; width: max-content; will-change: transform; }
+.pista.fondo .logo { width: 150px; height: 64px; margin-right: 40px; }
+.pista.frente .logo { width: 230px; height: 150px; margin-right: 34px; }
+.logo { flex: none; display: flex; align-items: center; justify-content: center; }
+.logo img { width: auto; height: auto; }
+.logo img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 0 18px color-mix(in srgb, var(--oro) 25%, transparent)); }
+.escena.quieta { height: auto; -webkit-mask-image: none; mask-image: none; }
+.escena.quieta .pista { position: static; height: auto; }
+.escena.quieta .pista.fondo { display: none; }
+.escena.quieta .tren { flex-wrap: wrap; justify-content: center; width: auto; padding-inline: 16px; gap: 16px; }
+@media (max-width: 820px) {
+  .huella { padding-block: 72px 48px; }
+  .escena { height: 250px; margin-top: 40px; }
+  .pista.fondo { height: 64px; }
+  .pista.frente { top: 70px; height: 170px; }
+  .pista.fondo .logo { width: 110px; height: 46px; margin-right: 28px; }
+  .pista.frente .logo { width: 170px; height: 110px; margin-right: 22px; }
+}
+
+/* Espectáculos */
+.shows .wrap { padding-block: 104px; }
+.shows-cab p { color: var(--humo); max-width: 34em; margin-top: 18px; }
+.show { display: grid; grid-template-columns: 5fr 6fr; gap: 56px; align-items: center; padding-block: 56px; border-bottom: 1px solid var(--linea); }
+.show:nth-child(even) figure { order: 2; }
+.show figure { margin: 0; min-width: 0; position: relative; }
+.show figure img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.show .n { position: absolute; top: 14px; left: 14px; background: var(--tablao); color: var(--oro); padding: 4px 10px; font-family: var(--f-ticket); font-size: 13px; letter-spacing: .14em; }
+.show-txt { min-width: 0; }
+.show-txt h3 { font-size: clamp(2.3rem, 4.6vw, 3.6rem); }
+.show-txt .sub { font-size: 2rem; color: var(--mostaza); line-height: 1.2; margin-top: 4px; }
+.show-txt > p.desc { margin-top: 18px; max-width: 34em; }
+.etiquetas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.etiquetas span { font-family: var(--f-ticket); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--linea); color: var(--humo); border-radius: 999px; }
+.subshows { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
+.subshow { border: 1px solid color-mix(in srgb, var(--oro) 60%, transparent); padding: 20px; min-width: 0; background: color-mix(in srgb, var(--oro) 5%, transparent); }
+.subshow h4 { font-size: 1.65rem; margin: 10px 0 8px; line-height: 1.1; }
+.subshow p { color: var(--humo); font-size: .97rem; line-height: 1.55; }
+@media (max-width: 820px) { .show { grid-template-columns: 1fr; gap: 28px; padding-block: 48px; } .show:nth-child(even) figure { order: 0; } .show figure img { aspect-ratio: 1/1; } .subshows { grid-template-columns: 1fr; } }
+
+/* Buscador de show */
+.elige { margin-top: 72px; background: var(--telon); border: 1px solid var(--linea); padding: clamp(22px, 4vw, 44px); display: grid; grid-template-columns: 5fr 6fr; gap: 40px; }
+.elige > div { min-width: 0; }
+.elige h3 { font-size: clamp(2rem, 4vw, 2.8rem); margin-top: 12px; }
+.elige > div:first-child p { color: var(--humo); margin-top: 10px; }
+.opciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.opcion { font-family: var(--f-ticket); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; padding: 9px 16px; background: transparent; color: var(--papel); border: 1px solid var(--linea); border-radius: 999px; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+.opcion[aria-pressed="true"] { background: var(--oro); color: var(--tinta); border-color: var(--oro); }
+.opcion:hover:not([aria-pressed="true"]) { border-color: var(--oro); color: var(--oro-claro); }
+.recomienda { border-left: 1px solid var(--linea); padding-left: 40px; display: grid; align-content: center; gap: 12px; }
+.recomienda h4 { font-size: clamp(2.1rem, 4vw, 3.1rem); line-height: 1.05; color: var(--oro); }
+.recomienda p { max-width: 32em; }
+.recomienda a { color: var(--mostaza); }
+.r-acc { display: flex; gap: 22px; flex-wrap: wrap; }
+@media (max-width: 820px) { .elige { grid-template-columns: 1fr; } .recomienda { border-left: 0; padding-left: 0; border-top: 1px solid var(--linea); padding-top: 26px; } }
+
+/* Cita */
+.cita { background: #0d0b08; overflow: hidden; }
+.cita .wrap { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
+.cita img { width: 100%; aspect-ratio: 2/3; object-fit: cover; filter: grayscale(1) contrast(1.1); max-height: 680px; }
+.cita blockquote { margin: 0; font-family: var(--f-display); font-size: clamp(2.1rem, 4.4vw, 3.7rem); line-height: 1.1; text-wrap: balance; }
+.cita blockquote em { color: var(--oro); font-style: normal; }
+.cita cite { display: block; margin-top: 24px; font-style: normal; }
+@media (max-width: 820px) { .cita .wrap { grid-template-columns: 1fr; padding-block: 56px; gap: 8px; } .cita img { max-height: 420px; aspect-ratio: 1/1; } }
+
+/* Contacto */
+.contacto .wrap { padding-block: 112px 72px; }
+.contacto h2 { font-size: clamp(3rem, 9vw, 7.5rem); line-height: .98; }
+.contacto h2 span { color: var(--oro); }
+.contacto .wrap > p { color: var(--humo); max-width: 34em; margin-top: 22px; font-size: 1.08rem; }
+.datos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.dato { border: 1px solid var(--linea); padding: 22px; display: grid; gap: 6px; min-width: 0; align-content: start; transition: border-color .2s; }
+.dato:hover { border-color: var(--oro); }
+.dato strong { font-size: 1.2rem; font-weight: 500; overflow-wrap: anywhere; }
+.dato .acc { display: flex; gap: 18px; margin-top: 10px; flex-wrap: wrap; }
+.dato button, .dato a { font-family: var(--f-ticket); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; background: transparent; color: var(--oro); border: 0; padding: 0; cursor: pointer; text-decoration: none; }
+.dato a:hover, .dato button:hover { color: var(--mostaza); }
+@media (max-width: 900px) { .datos { grid-template-columns: 1fr; } }
+footer { border-top: 1px solid var(--linea); }
+footer .wrap { padding-block: 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--humo); }
+footer img { width: 34px; height: 34px; border-radius: 50%; }
+footer .pie { display: flex; align-items: center; gap: 12px; }
+
+
+/* Caja de contacto */
+.contacto-grid { display: grid; grid-template-columns: 7fr 4fr; gap: 32px; margin-top: 44px; align-items: start; }
+.contacto-grid .datos { grid-template-columns: 1fr; margin-top: 0; }
+.caja { position: relative; background: linear-gradient(180deg, var(--telon), color-mix(in srgb, var(--telon) 60%, var(--tablao))); border: 1px solid color-mix(in srgb, var(--oro) 40%, transparent); padding: clamp(20px, 3.5vw, 36px); box-shadow: 0 40px 80px -40px rgba(0,0,0,.85); min-width: 0; }
+.caja::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: linear-gradient(90deg, transparent, var(--oro-claro), transparent); }
+.caja-cab { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid var(--linea); }
+.caja-cab .etq { font-size: 11px; }
+.campos { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; margin-top: 22px; }
+.campo { display: grid; gap: 8px; min-width: 0; }
+.campo.ancho { grid-column: 1 / -1; }
+.campo .etq { font-size: 11px; color: var(--humo); }
+.campo input, .campo select, .campo textarea { width: 100%; font: inherit; font-size: 16px; color: var(--papel); background: color-mix(in srgb, var(--tablao) 70%, transparent); border: 0; border-bottom: 1px solid var(--linea); padding: 10px 2px; border-radius: 0; transition: border-color .25s, background .25s; }
+.campo textarea { resize: vertical; min-height: 110px; line-height: 1.5; }
+.campo select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--oro) 50%), linear-gradient(135deg, var(--oro) 50%, transparent 50%); background-position: calc(100% - 14px) 55%, calc(100% - 9px) 55%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 28px; }
+.campo select option { background: var(--telon); color: var(--papel); }
+.campo input::placeholder, .campo textarea::placeholder { color: color-mix(in srgb, var(--humo) 70%, transparent); }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: none; border-bottom-color: var(--oro); background: color-mix(in srgb, var(--oro) 6%, transparent); }
+.campo input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(.7) sepia(1) saturate(3) hue-rotate(5deg); }
+.campo.error input, .campo.error select, .campo.error textarea { border-bottom-color: #c9654a; }
+.trampa { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.acepto { display: flex; gap: 12px; align-items: flex-start; margin-top: 22px; color: var(--humo); font-size: .93rem; line-height: 1.45; cursor: pointer; }
+.acepto input { accent-color: var(--oro); width: 18px; height: 18px; margin-top: 2px; flex: none; }
+.acepto.error span { color: #e08a70; }
+.enviar { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 24px; }
+.enviar .btn[disabled] { opacity: .6; cursor: progress; }
+.estado { font-size: .95rem; color: var(--humo); }
+.estado.ok { color: var(--oro-claro); }
+.estado.mal { color: #e08a70; }
+.plan-b { margin-top: 20px; padding: 16px 18px; border: 1px dashed color-mix(in srgb, var(--oro) 55%, transparent); color: var(--papel); font-size: .95rem; }
+.plan-b .acc { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 12px; }
+.plan-b a, .plan-b button { font-family: var(--f-ticket); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--oro); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: none; }
+.plan-b a:hover, .plan-b button:hover { color: var(--mostaza); }
+.caja.enviado .campos, .caja.enviado .acepto, .caja.enviado .enviar .btn { display: none; }
+@media (max-width: 900px) { .contacto-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .campos { grid-template-columns: 1fr; } }
+
+/* ---------- Acabado premium (sin cambios de tipografía) ---------- */
+::selection { background: var(--oro); color: var(--tinta); }
+html { scrollbar-color: var(--linea) var(--tablao); }
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.top { transition: background .3s, box-shadow .3s; }
+.top::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--oro) 70%, transparent), transparent); opacity: 0; transition: opacity .4s; }
+.top.con-sombra { background: color-mix(in srgb, var(--tablao) 96%, transparent); box-shadow: 0 10px 30px -12px rgba(0,0,0,.7); }
+.top.con-sombra::after { opacity: 1; }
+
+.hero { position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; left: -15%; top: -25%; width: 75%; height: 130%; background: radial-gradient(closest-side, color-mix(in srgb, var(--oro) 16%, transparent), transparent); pointer-events: none; animation: respira 9s ease-in-out infinite; }
+@keyframes respira { 50% { opacity: .6; transform: scale(1.06); } }
+.hero .wrap { position: relative; }
+.hero-foto { isolation: isolate; }
+.hero-foto::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid color-mix(in srgb, var(--oro) 50%, transparent); z-index: -1; }
+.hero-foto img:first-child { box-shadow: 0 40px 80px -30px rgba(0,0,0,.9); }
+.quien figure { position: relative; isolation: isolate; }
+.quien figure::before { content: ""; position: absolute; inset: -16px 16px 46px -16px; border: 1px solid color-mix(in srgb, var(--oro) 45%, transparent); z-index: -1; }
+
+.btn.lleno { background: linear-gradient(135deg, #ecc983 0%, var(--oro) 45%, #b5832d 100%); border-color: transparent; box-shadow: 0 14px 34px -14px color-mix(in srgb, var(--oro) 75%, transparent); position: relative; overflow: hidden; }
+.btn.lleno::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg); transition: left .7s ease; }
+.btn.lleno:hover::after { left: 130%; }
+.btn.lleno:hover { background: linear-gradient(135deg, #f3d58f 0%, #e0b25c 50%, #c08f36 100%); color: var(--tinta); }
+.btn:not(.lleno):hover { box-shadow: 0 0 0 1px var(--oro-claro), 0 12px 30px -14px color-mix(in srgb, var(--oro) 70%, transparent); }
+.top nav a.cta { background: linear-gradient(135deg, #ecc983, var(--oro) 50%, #b5832d); }
+
+.adorno { display: flex; align-items: center; justify-content: center; gap: 18px; padding-block: 8px; color: var(--oro); }
+.adorno::before, .adorno::after { content: ""; height: 1px; width: min(220px, 30vw); background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--oro) 70%, transparent)); }
+.adorno::after { transform: scaleX(-1); }
+
+.show figure { overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+.show figure img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter 1.2s; filter: saturate(.92); }
+.show:hover figure img { transform: scale(1.05); filter: saturate(1.05); }
+.show figure::after { content: ""; position: absolute; inset: 10px; border: 1px solid rgba(243,213,143,.28); pointer-events: none; }
+.subshow { transition: transform .35s, box-shadow .35s, border-color .35s; }
+.subshow:hover { transform: translateY(-4px); border-color: var(--oro); box-shadow: 0 18px 40px -20px color-mix(in srgb, var(--oro) 60%, transparent); }
+.elige { position: relative; box-shadow: 0 40px 80px -40px rgba(0,0,0,.8); }
+.elige::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: linear-gradient(90deg, transparent, var(--oro), transparent); }
+.cita img { box-shadow: 0 40px 80px -30px rgba(0,0,0,.9); }
+.dato { transition: border-color .3s, box-shadow .3s, transform .3s; }
+.dato:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--oro) 70%, transparent); }
+.contacto { background: radial-gradient(90% 70% at 0% 100%, color-mix(in srgb, var(--oro) 9%, transparent), transparent 60%); }
+
+.revela { transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1); }
+.revela.oculto { opacity: 0; transform: translateY(32px); }
+@media (max-width: 820px) { .hero-foto::before { inset: 12px -10px -12px 12px; } .quien figure::before { inset: -10px 10px 40px -10px; } }
+</style>
+<link rel="icon" href="logo.jpg">
+<link rel="apple-touch-icon" href="logo.jpg">
+<meta name="theme-color" content="#15110c">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Aarón Blade · Mago y mentalista">
+<meta property="og:description" content="Aarón Blade, mago profesional y mentalista con más de 15 años de experiencia. Magia para bodas, comuniones, cumpleaños, eventos de empresa y presentaciones de producto: close-up, magia de salón, mentalismo e hipnosis.">
+<meta property="og:image" content="baraja.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Aarón Blade","jobTitle":"Mago y mentalista","description":"Aarón Blade, mago profesional y mentalista con más de 15 años de experiencia. Magia para bodas, comuniones, cumpleaños, eventos de empresa y presentaciones de producto: close-up, magia de salón, mentalismo e hipnosis.","email":"mailto:aaronblademagos@gmail.com","telephone":"+34665825832","sameAs":["https://www.instagram.com/aaronelmago/"],"knowsAbout":["Magia de cerca","Magia de salón","Mentalismo","Hipnosis","Magia para bodas","Magia para comuniones","Magia para eventos de empresa"]}</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="#inicio"><img src="logo.jpg" alt="Logotipo AB de Aarón Blade"><span>Aarón Blade</span></a>
+    <nav aria-label="Secciones">
+      <a href="#quien">Quién soy</a>
+      <a href="#huella">Huella mágica</a>
+      <a href="#shows">Espectáculos</a>
+      <a class="cta" href="#contacto">Contratar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-txt">
+      <p class="etq humo">Mago profesional y mentalista</p>
+      <h1>Aarón <span class="b">Blade</span></h1>
+      <p class="firma">Magia, ilusión y humor</p>
+      <p class="hero-lead">Más de 15 años llevando la magia a la vida de las personas. Mago para bodas, comuniones, cumpleaños y eventos de empresa: magia de cerca, magia de salón, mentalismo e hipnosis, y shows que enseñan mientras divierten.</p>
+      <div class="acciones">
+        <a class="btn lleno" href="#contacto">Reservar un show</a>
+        <a class="btn" href="#shows">Ver los espectáculos</a>
+      </div>
+    </div>
+    <figure class="hero-foto">
+      <img src="baraja.jpg" alt="Aarón Blade lanzando una baraja de cartas de una mano a otra">
+      <img class="sello" src="logo.jpg" alt="">
+    </figure>
+  </div>
+</section>
+
+<div class="cinta" aria-hidden="true">
+  <div class="cinta-in">
+    <span>Close-up</span><span>Magia de salón</span><span>Mentalismo e hipnosis</span><span>Magia y psicología</span><span>El show de las emociones</span><span>El burnout show</span>
+    <span>Close-up</span><span>Magia de salón</span><span>Mentalismo e hipnosis</span><span>Magia y psicología</span><span>El show de las emociones</span><span>El burnout show</span>
+  </div>
+</div>
+
+<section class="quien" id="quien">
+  <div class="wrap">
+    <div class="quien-txt">
+      <span class="acto etq oro">Acto I · Quién soy</span>
+      <h2>Momentos que se quedan contigo</h2>
+      <blockquote>“Soy Aarón Blade, mago profesional con más de 15 años de experiencia. Me apasiona el mundo de la magia y el mentalismo. Mi misión es <em>acercar la magia a la vida de las personas</em>, dejando una impresión duradera y creando momentos inolvidables en cada actuación, conectando con el público a través del arte y el humor.”</blockquote>
+      <cite class="etq humo">Aarón Blade</cite>
+      <div class="cifras">
+        <div><strong data-cuenta="15" data-pre="+">+15</strong><span>años de experiencia</span></div>
+        <div><strong data-cuenta="4">4</strong><span>formatos de espectáculo</span></div>
+        <div><strong data-cuenta="13">13</strong><span>marcas y escenarios</span></div>
+      </div>
+    </div>
+    <figure>
+      <img src="premio.jpg" alt="Aarón Blade mordiendo en broma un trofeo de los IZ Awards">
+      <figcaption class="etq humo">Con el trofeo de los IZ Awards</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="huella" id="huella">
+  <div class="wrap">
+    <div class="huella-cab">
+      <span class="acto etq oro">Acto II</span>
+      <h2>Mi huella <span class="brillo">mágica</span></h2>
+    </div>
+  </div>
+  <div class="escena" id="escena" role="img" aria-label="Logotipos de Festardor, Valencia Golden Awards, IZ Awards, Circuit Ricardo Tormo, Veles e Vents, Las Arenas Balneario Resort, Maison Lupin, SLVJ, The Champions Burger, Sol Market, Zevra Festival, Zazú y Meat Carnival">
+    <div class="foco"></div>
+    <div class="pista fondo"><div class="tren" id="tren-fondo"></div></div>
+    <div class="pista frente"><div class="tren" id="tren-frente"></div></div>
+  </div>
+</section>
+
+<div class="adorno" aria-hidden="true">✦</div>
+<section class="shows" id="shows">
+  <div class="wrap">
+    <div class="shows-cab">
+      <span class="acto etq oro">Acto III · Espectáculos</span>
+      <h2>Cuatro maneras<br>de vivir la magia</h2>
+      <p>De la mesa de un cóctel al escenario de un teatro. Cada formato está pensado para una distancia, un público y un momento distinto.</p>
+    </div>
+
+    <div id="lista-shows">
+      <article class="show" id="show-closeup">
+        <figure><img src="cubiletes.jpg" alt="Aarón Blade levantando un cubilete metálico que descubre una bola roja"><span class="n">01</span></figure>
+        <div class="show-txt">
+          <h3>Close-up</h3>
+          <p class="sub cursiva">magia a centímetros</p>
+          <p class="desc">El close-up acerca la magia al espectador de forma directa, con objetos cotidianos que se pueden ver y tocar. Está diseñado para disfrutar de la magia a solo unos centímetros de distancia.</p>
+          <div class="etiquetas"><span>Cócteles</span><span>Bodas</span><span>Restaurantes</span><span>Mesa a mesa</span></div>
+        </div>
+      </article>
+
+      <article class="show" id="show-salon">
+        <figure><img src="anillas.jpg" alt="Aarón Blade enlazando anillas metálicas"><span class="n">02</span></figure>
+        <div class="show-txt">
+          <h3>Magia de salón</h3>
+          <p class="sub cursiva">el público, protagonista</p>
+          <p class="desc">Una experiencia para grandes audiencias en teatros, eventos sociales y corporativos o conferencias. El público se convierte en el gran protagonista, con humor e interacción directa.</p>
+          <div class="etiquetas"><span>Teatros</span><span>Empresas</span><span>Conferencias</span><span>Eventos sociales</span></div>
+        </div>
+      </article>
+
+      <article class="show" id="show-mente">
+        <figure><img src="esposas-mano.jpg" alt="Aarón Blade en blanco y negro mostrando la palma de la mano"><span class="n">03</span></figure>
+        <div class="show-txt">
+          <h3>Mentalismo e hipnosis</h3>
+          <p class="sub cursiva">el arte de la mente</p>
+          <p class="desc">El resultado de años de estudio y práctica del arte de la mente humana. Un viaje a los rincones más profundos de la psique que demuestra que la magia no es solo habilidad, sino también conexión.</p>
+          <div class="etiquetas"><span>Gran público</span><span>Galas</span><span>Público adulto</span></div>
+        </div>
+      </article>
+
+      <article class="show" id="show-psico">
+        <figure><img src="emociones.jpg" alt="Aarón Blade sujetando muñecos de peluche de colores que representan emociones"><span class="n">04</span></figure>
+        <div class="show-txt">
+          <h3>Magia y psicología</h3>
+          <p class="sub cursiva">aprender y divertirse a la vez</p>
+          <p class="desc">Shows únicos que unen los clásicos de la magia, reinventados con mucha creatividad, con los conocimientos teóricos de una psicóloga.</p>
+          <div class="subshows">
+            <div class="subshow"><span class="etq oro">Niños de 3 a 10 años</span><h4>El show de las emociones</h4><p>Un espectáculo de magia creado para enseñar a los más pequeños algo tan importante como las emociones.</p></div>
+            <div class="subshow"><span class="etq oro">Empresas</span><h4>El burnout show</h4><p>Herramientas útiles para el control de impulsos y la gestión del estrés, en un momento divertido que hace más fácil aprender la teoría.</p></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="elige">
+      <div>
+        <span class="etq oro">¿No sabes cuál elegir?</span>
+        <h3>¿Qué estás celebrando?</h3>
+        <p>Toca tu tipo de evento y te decimos qué espectáculo encaja mejor.</p>
+        <div class="opciones" id="opciones"></div>
+      </div>
+      <div class="recomienda" aria-live="polite">
+        <span class="etq humo">Te recomendamos</span>
+        <h4 id="r-tit">Close-up</h4>
+        <p id="r-txt">En una boda la magia pasa entre los invitados, mesa a mesa, durante el cóctel. Nadie se queda sin verla de cerca.</p>
+        <span class="r-acc"><a href="#contacto" id="r-pedir" class="etq">Pedir presupuesto</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cita">
+  <div class="wrap">
+    <img src="esposas.jpg" alt="Aarón Blade con las muñecas esposadas mirando a cámara">
+    <div style="padding-block:40px">
+      <blockquote>“La magia no es solo cuestión de habilidad, sino también de <em>conexión</em>.”</blockquote>
+      <cite class="etq humo">Aarón Blade</cite>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="adorno" aria-hidden="true" style="padding-top:48px">✦</div>
+  <div class="wrap">
+    <span class="acto etq oro">Último acto</span>
+    <h2>¿Hablamos de<br>tu <span>evento</span>?</h2>
+    <p>Cuéntale a Aarón qué celebras, cuántas personas seréis y dónde. Te propondrá el espectáculo que mejor encaje.</p>
+    <div class="contacto-grid">
+      <form class="caja" id="form-contacto" novalidate>
+        <div class="caja-cab"><span class="etq oro">Solicitud de espectáculo</span><span class="etq humo">Llega al correo de Aarón</span></div>
+        <div class="campos">
+          <label class="campo"><span class="etq">Nombre *</span><input id="f-nombre" name="nombre" type="text" autocomplete="name" required></label>
+          <label class="campo"><span class="etq">Correo *</span><input id="f-email" name="email" type="email" autocomplete="email" required></label>
+          <label class="campo"><span class="etq">Teléfono</span><input id="f-tel" name="telefono" type="tel" autocomplete="tel"></label>
+          <label class="campo"><span class="etq">Tipo de evento *</span>
+            <select id="f-tipo" name="tipo_evento" required>
+              <option value="">Elige una opción</option>
+              <option>Boda</option><option>Comunión</option><option>Cumpleaños o fiesta privada</option><option>Evento de empresa</option><option>Presentación de producto</option>
+              <option>Evento infantil</option><option>Gala o teatro</option><option>Restaurante o cóctel</option><option>Otro</option>
+            </select></label>
+          <label class="campo"><span class="etq">Fecha</span><input id="f-fecha" name="fecha" type="date"></label>
+          <label class="campo"><span class="etq">Invitados</span><input id="f-invitados" name="invitados" type="number" min="1" inputmode="numeric" placeholder="Aprox."></label>
+          <label class="campo"><span class="etq">Lugar o ciudad</span><input id="f-lugar" name="lugar" type="text" autocomplete="address-level2"></label>
+          <label class="campo"><span class="etq">Presupuesto aproximado</span><input id="f-presupuesto" name="presupuesto" type="text" inputmode="decimal" placeholder="Opcional · ej. 400 €"></label>
+          <label class="campo ancho"><span class="etq">Cuéntale tu idea *</span><textarea id="f-mensaje" name="mensaje" rows="4" required placeholder="Qué celebras, qué tipo de show te apetece…"></textarea></label>
+          <input type="text" name="_honey" id="f-honey" tabindex="-1" autocomplete="off" class="trampa" aria-hidden="true">
+        </div>
+        <label class="acepto"><input type="checkbox" id="f-acepto" required><span>Acepto que Aarón use estos datos solo para responder a mi solicitud.</span></label>
+        <div class="enviar">
+          <button type="submit" class="btn lleno" id="f-boton">Enviar a Aarón</button>
+          <p class="estado" id="f-estado" role="status" aria-live="polite"></p>
+        </div>
+        <div class="plan-b" id="plan-b" hidden>
+          <p>Desde esta vista previa el mensaje no puede salir. En la web publicada llega directo al correo de Aarón. Mientras tanto puedes enviarlo tú:</p>
+          <div class="acc"><a id="pb-mail" href="#">Abrir en mi correo</a><a id="pb-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a><button type="button" id="pb-copiar">Copiar mensaje</button></div>
+        </div>
+      </form>
+      <div class="datos">
+      <div class="dato"><span class="etq humo">WhatsApp y teléfono</span><strong id="c-tel">665 825 832</strong><div class="acc"><a href="https://wa.me/34665825832" target="_blank" rel="noopener">Abrir WhatsApp</a><button type="button" data-copy="c-tel">Copiar</button></div></div>
+      <div class="dato"><span class="etq humo">Instagram</span><strong>@aaronelmago</strong><div class="acc"><a href="https://www.instagram.com/aaronelmago/" target="_blank" rel="noopener">Ver perfil</a></div></div>
+      <div class="dato"><span class="etq humo">Correo</span><strong id="c-mail">aaronblademagos@gmail.com</strong><div class="acc"><button type="button" data-copy="c-mail">Copiar</button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span class="pie"><img src="logo.jpg" alt=""><span class="etq">Aarón Blade · Mago y mentalista</span></span><span class="etq">@aaronelmago</span></div></footer>
+
+<script>
+const el = id => document.getElementById(id);
+const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---- Mi huella mágica: desfile de logos con foco central ---- */
+const logos = ["festardor", "valencia-golden-awards", "iz-awards", "ricardo-tormo", "veles-e-vents", "las-arenas", "maison-lupin", "slvj", "champions-burger", "sol-market", "zevra", "zazu", "meat"];
+const escena = el("escena");
+function montar(tren, lista, copias) {
+  let html = "";
+  for (let c = 0; c < copias; c++) html += lista.map(f => `<div class="logo"><img src="logo-${f}.png" alt="" draggable="false"></div>`).join("");
+  tren.innerHTML = html;
+}
+const trenes = [
+  { t: el("tren-frente"), lista: logos, vel: 42, lupa: true },
+  { t: el("tren-fondo"), lista: logos.slice().reverse(), vel: -18, lupa: false }
+];
+if (quieto) {
+  escena.classList.add("quieta");
+  montar(trenes[0].t, logos, 1);
+} else {
+  let pausa = false;
+  escena.addEventListener("pointerenter", () => pausa = true);
+  escena.addEventListener("pointerleave", () => pausa = false);
+  function preparar() {
+    const W = escena.clientWidth;
+    trenes.forEach(tr => {
+      montar(tr.t, tr.lista, 1);
+      tr.ancho = tr.t.scrollWidth || 1;
+      montar(tr.t, tr.lista, Math.ceil((W * 2) / tr.ancho) + 1);
+      tr.items = [...tr.t.children].map(n => ({ n, c: n.offsetLeft + n.offsetWidth / 2 }));
+      tr.x = tr.x || 0;
+    });
+  }
+  preparar();
+  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(preparar, 200); });
+  let antes = performance.now();
+  function paso(ahora) {
+    const dt = Math.min(64, ahora - antes) / 1000; antes = ahora;
+    const W = escena.clientWidth, centro = W / 2;
+    trenes.forEach(tr => {
+      if (!pausa) tr.x = (tr.x + tr.vel * dt) % tr.ancho;
+      const x = tr.vel > 0 ? -tr.x : -((tr.ancho + tr.x) % tr.ancho);
+      tr.t.style.transform = `translate3d(${x}px,0,0)`;
+      if (!tr.lupa) return;
+      tr.items.forEach(it => {
+        const pos = it.c + x;
+        if (pos < -300 || pos > W + 300) return;
+        const d = Math.min(1, Math.abs(pos - centro) / (W * (W < 700 ? 0.75 : 0.42)));
+        const k = 1 - d;
+        it.n.style.transform = `scale(${(0.72 + 0.48 * k * k).toFixed(3)})`;
+        it.n.style.opacity = (0.3 + 0.7 * k).toFixed(3);
+        it.n.style.filter = `grayscale(${d.toFixed(2)}) brightness(${(0.7 + 0.45 * k).toFixed(2)})`;
+      });
+    });
+    requestAnimationFrame(paso);
+  }
+  requestAnimationFrame(paso);
+}
+
+
+
+/* ---- Acabado premium ---- */
+const cab = document.querySelector(".top");
+const sombra = () => cab.classList.toggle("con-sombra", scrollY > 20);
+addEventListener("scroll", sombra, { passive: true }); sombra();
+
+if (!quieto && "IntersectionObserver" in window) {
+  const objetivos = document.querySelectorAll(".quien-txt, .quien figure, .huella-cab, .shows-cab, .show, .elige, .cita blockquote, .contacto h2, .caja, .datos");
+  const vista = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.remove("oculto"); vista.unobserve(e.target); }
+  }), { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+  objetivos.forEach(n => {
+    n.classList.add("revela");
+    if (n.getBoundingClientRect().top > innerHeight) { n.classList.add("oculto"); vista.observe(n); }
+  });
+
+  const cifras = document.querySelectorAll("[data-cuenta]");
+  const io2 = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    io2.unobserve(e.target);
+    const n = e.target, fin = +n.dataset.cuenta, pre = n.dataset.pre || "";
+    const t0 = performance.now(), dur = 1400;
+    const tick = t => { const k = Math.min(1, (t - t0) / dur), v = Math.round(fin * (1 - Math.pow(1 - k, 3))); n.textContent = pre + v; if (k < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+    setTimeout(() => n.textContent = pre + fin, dur + 300);
+  }), { threshold: .5 });
+  cifras.forEach(n => io2.observe(n));
+}
+
+/* ---- Buscador de show ---- */
+const eventos = [
+  { k: "Boda", tipo: "Boda", t: "Close-up", d: "En una boda la magia pasa entre los invitados, mesa a mesa, durante el cóctel. Nadie se queda sin verla de cerca.", a: "#show-closeup" },
+  { k: "Comunión", tipo: "Comunión", t: "Close-up", d: "Magia de cerca que pasa por todas las mesas: los niños alucinan y los mayores también. Un recuerdo más del gran día.", a: "#show-closeup" },
+  { k: "Cumpleaños", tipo: "Cumpleaños o fiesta privada", t: "Magia de salón", d: "Un show con humor donde el homenajeado y sus invitados se convierten en protagonistas.", a: "#show-salon" },
+  { k: "Restaurante o cóctel", tipo: "Restaurante o cóctel", t: "Close-up", d: "Magia a centímetros con objetos que se pueden tocar. Ideal cuando la gente está de pie o en sus mesas.", a: "#show-closeup" },
+  { k: "Gala o teatro", tipo: "Gala o teatro", t: "Magia de salón", d: "Un espectáculo para todo el auditorio, con voluntarios del público y mucho humor.", a: "#show-salon" },
+  { k: "Público adulto", tipo: "Otro", t: "Mentalismo e hipnosis", d: "Para quien quiere salir con la sensación de que alguien ha entrado en su cabeza.", a: "#show-mente" },
+  { k: "Niños", tipo: "Evento infantil", t: "El show de las emociones", d: "Magia creada para niños de 3 a 10 años que les ayuda a reconocer y entender sus emociones.", a: "#show-psico" },
+  { k: "Presentación de producto", tipo: "Presentación de producto", t: "Magia de salón", d: "Magia que capta la atención de todo el público y hace que tu presentación se recuerde.", a: "#show-salon" },
+  { k: "Empresa", tipo: "Evento de empresa", t: "El burnout show", d: "Herramientas para gestionar el estrés y controlar impulsos, explicadas con magia. Combina bien con la magia de salón.", a: "#show-psico" }
+];
+let eventoElegido = "Boda";
+const ops = el("opciones");
+eventos.forEach((e, i) => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "opcion"; b.id = "ev-" + i; b.textContent = e.k;
+  b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+  b.addEventListener("click", () => {
+    ops.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    el("r-tit").textContent = e.t; el("r-txt").textContent = e.d; eventoElegido = e.tipo;
+  });
+  ops.appendChild(b);
+});
+
+
+/* ---- Caja de contacto: envía al correo de Aarón ---- */
+const DESTINO = "aaronblademagos@gmail.com";
+el("r-pedir").addEventListener("click", () => { el("f-tipo").value = eventoElegido; setTimeout(() => el("f-nombre").focus({ preventScroll: true }), 700); });
+const form = el("form-contacto"), estado = el("f-estado"), boton = el("f-boton");
+const datosForm = () => ({
+  nombre: el("f-nombre").value.trim(), email: el("f-email").value.trim(), telefono: el("f-tel").value.trim(),
+  tipo: el("f-tipo").value, fecha: el("f-fecha").value, invitados: el("f-invitados").value, lugar: el("f-lugar").value.trim(), presupuesto: el("f-presupuesto").value.trim(), mensaje: el("f-mensaje").value.trim()
+});
+function textoPlano(d) {
+  const l = ["Nueva solicitud desde la web de Aarón Blade", "", "Nombre: " + d.nombre, "Correo: " + d.email];
+  if (d.telefono) l.push("Teléfono: " + d.telefono);
+  l.push("Tipo de evento: " + d.tipo);
+  if (d.fecha) l.push("Fecha: " + d.fecha);
+  if (d.invitados) l.push("Invitados: " + d.invitados);
+  if (d.lugar) l.push("Lugar: " + d.lugar);
+  if (d.presupuesto) l.push("Presupuesto: " + d.presupuesto);
+  l.push("", d.mensaje);
+  return l.join("\n");
+}
+function validar() {
+  let ok = true;
+  [["f-nombre", v => v.length > 1], ["f-email", v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)], ["f-tipo", v => !!v], ["f-mensaje", v => v.length > 4]].forEach(([id, f]) => {
+    const bien = f(el(id).value.trim());
+    el(id).closest(".campo").classList.toggle("error", !bien);
+    if (!bien && ok) el(id).focus();
+    ok = ok && bien;
+  });
+  const acepta = el("f-acepto").checked;
+  el("f-acepto").closest(".acepto").classList.toggle("error", !acepta);
+  return ok && acepta;
+}
+function planB(d) {
+  const asunto = "Solicitud de espectáculo · " + d.tipo + " · " + d.nombre, cuerpo = textoPlano(d);
+  el("pb-mail").href = "mailto:" + DESTINO + "?subject=" + encodeURIComponent(asunto) + "&body=" + encodeURIComponent(cuerpo);
+  el("pb-wa").href = "https://wa.me/34665825832?text=" + encodeURIComponent(cuerpo);
+  el("pb-copiar").onclick = () => {
+    const b = el("pb-copiar");
+    if (navigator.clipboard) navigator.clipboard.writeText(cuerpo).then(() => { b.textContent = "Copiado"; setTimeout(() => b.textContent = "Copiar mensaje", 1600); }).catch(() => {});
+  };
+  el("plan-b").hidden = false;
+}
+form.addEventListener("submit", async ev => {
+  ev.preventDefault();
+  if (el("f-honey").value) return;
+  if (!validar()) { estado.className = "estado mal"; estado.textContent = "Revisa los campos marcados."; return; }
+  const d = datosForm();
+  boton.disabled = true; estado.className = "estado"; estado.textContent = "Enviando…";
+  try {
+    const r = await fetch("https://formsubmit.co/ajax/" + DESTINO, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        _subject: "Nueva solicitud web · " + d.tipo + " · " + d.nombre, _template: "table", _replyto: d.email,
+        Nombre: d.nombre, Correo: d.email, "Teléfono": d.telefono || "—", "Tipo de evento": d.tipo,
+        Fecha: d.fecha || "—", Invitados: d.invitados || "—", Lugar: d.lugar || "—", Presupuesto: d.presupuesto || "—", Mensaje: d.mensaje
+      })
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "envío rechazado");
+    form.classList.add("enviado");
+    estado.className = "estado ok"; estado.textContent = "¡Mensaje enviado! Aarón te responderá en tu correo muy pronto.";
+  } catch (e) {
+    boton.disabled = false;
+    estado.className = "estado mal"; estado.textContent = "No se ha podido enviar desde aquí.";
+    planB(d);
+  }
+});
+
+/* ---- Copiar contacto ---- */
+document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => {
+  const n = el(b.dataset.copy);
+  const hecho = () => { b.textContent = "Copiado"; setTimeout(() => b.textContent = "Copiar", 1600); };
+  const marcar = () => getSelection().selectAllChildren(n);
+  if (navigator.clipboard) navigator.clipboard.writeText(n.textContent).then(hecho).catch(marcar); else marcar();
+}));
+</script>
+</body>
+</html>
